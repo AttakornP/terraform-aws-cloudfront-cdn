@@ -4,7 +4,7 @@ module "origin_label" {
   stage      = var.stage
   name       = var.name
   delimiter  = var.delimiter
-  attributes = [compact(concat(var.attributes, list("origin")))]
+#  attributes = [compact(concat(var.attributes, list("origin")))]
   tags       = var.tags
 }
 
@@ -31,7 +31,7 @@ module "distribution_label" {
   namespace  = var.namespace
   stage      = var.stage
   name       = var.name
-  attributes = var.attributes
+#  attributes = var.attributes
   delimiter  = var.delimiter
   tags       = var.tags
 }
