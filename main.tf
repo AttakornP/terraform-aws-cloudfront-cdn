@@ -43,11 +43,11 @@ resource "aws_cloudfront_distribution" "default" {
   default_root_object = var.default_root_object
   price_class         = var.price_class
 
-  logging_config {
-    include_cookies = var.log_include_cookies
-    bucket          = module.logs.bucket_domain_name
-    prefix          = var.log_prefix
-  }
+#  logging_config {
+#    include_cookies = var.log_include_cookies
+#    bucket          = module.logs.bucket_domain_name
+#    prefix          = var.log_prefix
+#  }
 
   aliases = var.aliases
 
