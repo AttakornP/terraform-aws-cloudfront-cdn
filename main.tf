@@ -49,14 +49,14 @@ resource "aws_cloudfront_distribution" "default" {
     prefix          = var.log_prefix
   }
 
-  aliases = [var.aliases]
+  aliases = var.aliases
 
-  custom_error_response {
-    error_caching_min_ttl = 300
-    error_code            = 403
-    response_code         = 200
-    response_page_path    = var.custom_error_response_page_path
-  }
+#  custom_error_response {
+#    error_caching_min_ttl = 300
+#    error_code            = 403
+#    response_code         = 200
+#    response_page_path    = var.custom_error_response_page_path
+#  }
 
 
   origin {
@@ -88,7 +88,7 @@ resource "aws_cloudfront_distribution" "default" {
     compress         = var.compress
 
     forwarded_values {
-      headers = [var.forward_headers]
+#      headers = [var.forward_headers]
 
       query_string = var.forward_query_string
 
@@ -104,7 +104,7 @@ resource "aws_cloudfront_distribution" "default" {
     max_ttl                = var.max_ttl
   }
 
-  ordered_cache_behavior = var.cache_behavior
+#  ordered_cache_behavior = var.cache_behavior
 
   web_acl_id = var.web_acl_id
 
