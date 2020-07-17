@@ -43,7 +43,7 @@ resource "aws_cloudfront_distribution" "default" {
   default_root_object = var.default_root_object
   price_class         = var.price_class
 
-  logging_config = {
+  logging_config {
     include_cookies = var.log_include_cookies
     bucket          = module.logs.bucket_domain_name
     prefix          = var.log_prefix
@@ -51,7 +51,13 @@ resource "aws_cloudfront_distribution" "default" {
 
   aliases = [var.aliases]
 
-  custom_error_response = [var.custom_error_response]
+  custom_error_response {
+    error_caching_min_ttl = 300
+    error_code            = 403
+    response_code         = 200
+    response_page_path    = var.custom_error_response_page_path
+  }
+
 
   origin {
     domain_name = var.origin_domain_name

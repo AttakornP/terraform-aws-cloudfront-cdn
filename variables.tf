@@ -48,13 +48,13 @@ variable "aliases" {
   description = "List of aliases. CAUTION! Names MUSTN'T contain trailing `.`"
 }
 
-variable "custom_error_response" {
+variable "custom_error_response_page_path" {
   # http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html#custom-error-pages-procedure
   # https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html#custom-error-response-arguments
   description = "(Optional) - List of one or more custom error response element maps"
 
-  type    = "list"
-  default = []
+  type    = "string"
+  default = "/error.html"
 }
 
 variable "web_acl_id" {
