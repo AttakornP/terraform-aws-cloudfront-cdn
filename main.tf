@@ -94,7 +94,7 @@ resource "aws_cloudfront_distribution" "default" {
 
       cookies {
         forward           = var.forward_cookies
-        whitelisted_names = [var.forward_cookies_whitelisted_names]
+        whitelisted_names = var.forward_cookies_whitelisted_names
       }
     }
 
